@@ -38,31 +38,39 @@ class _MyHomePageState extends State<MyHomePage> {
           maxWidth: MediaQuery.of(context).size.width,
           //maximum width set to 100% of width
         ),
+        alignment: Alignment.center,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
           ),
         ),
-        child: const Column(
-          children: [
-            ElevatedButton(
-                style: ButtonStyle(),
-                onPressed: null,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Icon(
-                      Icons.bus_alert,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      'BOOK A TRIP',
-                      style: TextStyle(color: Colors.white),
-                    )
-                  ],
-                ))
-          ],
+        child: Container(
+          height: 33,
+          width: 200,
+          color: Colors.black,
+          alignment: Alignment.center,
+          child: Column(
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'signUp');
+                  },
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.bus_alert,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        'BOOK A TRIP',
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ))
+            ],
+          ),
         ),
       ),
 

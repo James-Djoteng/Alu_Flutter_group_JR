@@ -1,48 +1,57 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../reusable_widgets/reusable_widget.dart';
+import 'booking_page.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage{{super.key}}
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: (
-              const SizedBox(height: 50),
-            
-        // logo
-        const Icon(
-          Icons.lock
-          size: 100
-        ), // Icon
-
-        const SizedBox(height: 50),
-
-        // welcome back, you've been missed!
-        Text(
-          'welcome back you\'ve been missed!',
-          style: TextStyle(color: colors.grey[700]),
-        ), // Text
-
-        // username textfield
-
-        // password textfield
-
-        // forgot password?
-
-        // sign in button
-
-        // or continue with
-
-        // google + apple sign in buttons
-
-        // not a member? register now
-       },
-      ), // Column
-    ); // Scaffold
-
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 100, 20, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text('Sign in'),
+                SizedBox(
+                  height: 20,
+                ),
+                reuableTextField('Enter Email', Icons.email_rounded, false,
+                    _emailTextController),
+                SizedBox(
+                  height: 20,
+                ),
+                reuableTextField('Enter Passwrod', Icons.password_rounded, true,
+                    _passwordTextController),
+                SizedBox(
+                  height: 20,
+                ),
+                signinSignupButton(context, true, () {
+                  FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                          email: _emailTextController.text,
+                          password: _passwordTextController.text)
+                      .then((value) => const MyForm());
+                })
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

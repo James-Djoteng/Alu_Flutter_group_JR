@@ -36,6 +36,34 @@
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;
   </script>
+  
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import {initializepp} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+  apiKey: "AIzaSyC0HRzjvwK690JvIDHULmEsZ0rzemdwIbM",
+  authDomain: "tirana-f1d9c.firebaseapp.com",
+  projectId: "tirana-f1d9c",
+  storageBucket: "tirana-f1d9c.appspot.com",
+  messagingSenderId: "627611705374",
+  appId: "1:627611705374:web:c138a93ed2c971bbd5ce0f",
+  measurementId: "G-388K36N1ST"
+};
+
+  // Initialize Firebase
+  const app = initialize/pp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  </script>
+
+
+
+
+
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
@@ -57,3 +85,4 @@
   </script>
 </body>
 </html>
+

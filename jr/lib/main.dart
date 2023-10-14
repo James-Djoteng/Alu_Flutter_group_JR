@@ -1,7 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:jr/pages/receipt.dart';
 import 'pages/homepage.dart';
+import 'pages/booking_page.dart';
+import './pages/login_page.dart';
+import './pages/signup.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+    apiKey: "AIzaSyC0HRzjvwK690JvIDHULmEsZ0rzemdwIbM",
+    projectId: "tirana-f1d9c",
+    messagingSenderId: "627611705374",
+    appId: "1:627611705374:web:c138a93ed2c971bbd5ce0f",
+  ));
   runApp(const MyApp());
 }
 
@@ -12,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Tirana',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -33,7 +46,16 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: '/',
-      routes: {'/': (context) => const MyHomePage(title: 'Tirana')},
+      routes: {
+        '/': (context) => const MyHomePage(
+              title: 'Tirana',
+            ),
+        'homePage': (context) => const MyHomePage(title: 'Tirana'),
+        'signUp': (context) => const SingupPage(),
+        'login': (context) => const LoginPage(),
+        'booking': (context) => const MyForm(),
+        'Receipt': (context) => const ReceiptPage()
+      },
     );
   }
 }
