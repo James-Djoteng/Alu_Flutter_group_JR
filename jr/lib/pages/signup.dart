@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:jr/pages/booking_page.dart';
@@ -6,15 +8,31 @@ import '../reusable_widgets/reusable_widget.dart';
 import 'login_page.dart';
 
 class SingupPage extends StatefulWidget {
-  const SingupPage({super.key});
+  const SingupPage({
+    super.key,
+  });
 
   @override
   State<SingupPage> createState() => _SingupPageState();
 }
 
 class _SingupPageState extends State<SingupPage> {
-  final TextEditingController _passwordTextController = TextEditingController();
-  final TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
+
+  Future signUp() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailTextController.text.trim(),
+      password: _passwordTextController.text.trim(),
+    );
+  }
+
+  @override
+  void dispose() {
+    _emailTextController.dispose();
+    _passwordTextController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +60,7 @@ class _SingupPageState extends State<SingupPage> {
                 const SizedBox(
                     // height: 20,
                     ),
-                signinSignupButton(context, false, () {
-                  FirebaseAuth.instance
-                      .createUserWithEmailAndPassword(
-                          email: _emailTextController.text,
-                          password: _passwordTextController.text)
-                      .then((value) => const MyForm());
-                }),
+                signinSignupButton(context, false, signUp),
                 signUpOption(),
               ],
             ),

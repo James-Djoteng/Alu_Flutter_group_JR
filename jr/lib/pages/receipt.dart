@@ -18,9 +18,9 @@ class _ReceiptPageState extends State<ReceiptPage> {
     await FirebaseFirestore.instance
         .collection('booking')
         .get()
-        .then((snapshot) => snapshot.docs.forEach((document) {
-              print(document.reference);
-              docIDs.add(document.reference.id);
+        .then((snapshot) => snapshot.docs.forEach((Element) {
+              print(Element.reference);
+              docIDs.add(Element.reference.id);
             }));
   }
 

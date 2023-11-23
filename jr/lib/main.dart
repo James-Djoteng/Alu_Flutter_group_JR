@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:jr/auth/main_page.dart';
 import 'package:jr/pages/receipt.dart';
 import 'pages/homepage.dart';
 import 'pages/booking_page.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tirana',
       theme: ThemeData(
+        
         // This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: '/',
+      initialRoute: 'mainPage',
       routes: {
         '/': (context) => const MyHomePage(
               title: 'Tirana',
@@ -54,7 +56,8 @@ class MyApp extends StatelessWidget {
         'signUp': (context) => const SingupPage(),
         'login': (context) => const LoginPage(),
         'booking': (context) => const MyForm(),
-        'Receipt': (context) => const ReceiptPage()
+        'Receipt': (context) => const ReceiptPage(),
+        'mainPage': (context) => const MainPage()
       },
     );
   }
