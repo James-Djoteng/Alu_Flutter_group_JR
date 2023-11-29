@@ -47,6 +47,7 @@ class _SingupPageState extends State<SingupPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text('Sign up'),
+                
                 const SizedBox(
                   height: 20,
                 ),
@@ -62,6 +63,9 @@ class _SingupPageState extends State<SingupPage> {
                     ),
                 signinSignupButton(context, false, signUp),
                 signUpOption(),
+                Text(), 
+                
+              
               ],
             ),
           ),

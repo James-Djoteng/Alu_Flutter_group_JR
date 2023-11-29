@@ -1,6 +1,6 @@
 {
     "cmake.sourceDirectory": "/Users/pro/Alu_Flutter_group_JR/jr/linux",
-    "cmake.options.statusBarVisibility": "hidden",
+    "cmake.options.statusBarVisibility": "visible",
     "cmake.useCMakePresets": "auto",
     "editor.formatOnSave": false
 }

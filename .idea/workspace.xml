@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="13e4d7ca-2638-4b04-b970-681d9d1759c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/jr/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/jr/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jr/lib/pages/booking_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/jr/lib/pages/booking_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jr/lib/pages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/jr/lib/pages/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jr/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/jr/lib/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jr/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/jr/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jr/lib/pages/signup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/jr/lib/pages/signup.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jr/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/jr/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +20,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2YXOjpku5ecAcK92LMpPRrT3DfI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,9 +38,16 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "TODO_SCOPE": "All Places",
     "WebServerToolWindowFactoryState": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/pro/Alu_Flutter_group_JR",
+    "settings.editor.selected.configurable": "dart.settings",
+    "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -45,5 +62,16 @@
       <workItem from="1700668599550" duration="41000" />
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
