@@ -1,7 +1,6 @@
-import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:jr/auth/auth_service.dart';
 import 'package:jr/pages/booking_page.dart';
 import 'package:jr/pages/homepage.dart';
 import '../reusable_widgets/reusable_widget.dart';
@@ -21,10 +20,14 @@ class _SingupPageState extends State<SingupPage> {
   TextEditingController _emailTextController = TextEditingController();
 
   Future signUp() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailTextController.text.trim(),
-      password: _passwordTextController.text.trim(),
-    );
+    final message = await AuthService().registration(
+        email: _emailTextController.text,
+        password: _passwordTextController.text);
+    if (message!.contains('Success')) {
+      Navigator.pushNamed(context, 'homePage');
+    }
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -44,51 +47,49 @@ class _SingupPageState extends State<SingupPage> {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(20, 100, 20, 0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Sign up'),
-                
-                const SizedBox(
-                  height: 20,
+                const Text(
+                  'Sign up',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 ),
-                reuableTextField('Enter Email', Icons.email_rounded, false,
-                    _emailTextController),
                 const SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
-                reuableTextField('Enter Passwrod', Icons.password_rounded, true,
-                    _passwordTextController),
+                reuableTextField(const Key('email'), 'Enter Email',
+                    Icons.email_rounded, false, _emailTextController),
                 const SizedBox(
-                    // height: 20,
+                  height: 30,
+                ),
+                reuableTextField(const Key('password'), 'Enter Passwrod',
+                    Icons.password_rounded, true, _passwordTextController),
+                const SizedBox(
+                  height: 60,
+                ),
+                InkWell(
+                  onTap: signUp,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 16, 20, 23),
+                        borderRadius: BorderRadius.circular(7)),
+                    width: MediaQuery.of(context).size.width,
+                    height: 50,
+                    child: const Center(
+                      child: Text(
+                        'Sign up',
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
                     ),
-                signinSignupButton(context, false, signUp),
-                signUpOption(),
-                Text(), 
-                
-              
+                  ),
+                ),
+                const SizedBox(
+                  height: 70,
+                ),
+                signInSingUpOption(context, true)
               ],
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Padding signUpOption() {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('Already have an account? '),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage()));
-            },
-            child: const Text('Signin'),
-          )
-        ],
       ),
     );
   }

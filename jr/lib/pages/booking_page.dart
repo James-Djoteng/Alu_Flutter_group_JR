@@ -11,11 +11,14 @@ class MyForm extends StatefulWidget {
 }
 
 class MyFormState extends State<MyForm> {
-  final TextEditingController _nameController = TextEditingController();
+  final _nameController = TextEditingController();
   final TextEditingController _departureController = TextEditingController();
   final TextEditingController _destinationController = TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
   final TextEditingController _emailTextController = TextEditingController();
+
+  var currentUser = FirebaseAuth.instance.currentUser;
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -28,7 +31,7 @@ class MyFormState extends State<MyForm> {
     super.dispose();
   }
 
-  Future signUp() async {
+  /* Future signUp() async {
     bool passwordConfirmed() {
       if (_passwordTextController.text.trim() ==
           _passwordTextController.text.trim()) {
@@ -61,12 +64,13 @@ class MyFormState extends State<MyForm> {
         _destinationController.text.trim(),
       );
     }
-  }
+  }*/
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget _buildName() {
     return TextFormField(
+      key: const Key('name'),
       controller: _nameController,
       decoration: const InputDecoration(labelText: 'Name'),
       validator: (String? value) {
@@ -106,11 +110,13 @@ class MyFormState extends State<MyForm> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Booking Page'),
+          backgroundColor: Colors.black,
+          title: const Text('BOOKING', style: TextStyle(color: Colors.white)),
         ),
         body: Container(
           margin: const EdgeInsets.all(24),
@@ -124,20 +130,28 @@ class MyFormState extends State<MyForm> {
                 _buildDestination(),
                 const SizedBox(height: 100),
                 ElevatedButton(
-                    style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Colors.orange)),
-                    child: const Text(
-                      'Book Now',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
+                  style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(Colors.orange)),
+                  onPressed: () {
+                    CollectionReference collRef =
+                        FirebaseFirestore.instance.collection('booking');
+                    collRef.add({
+                      'name': _nameController.text,
+                      'departure': _departureController.text,
+                      'destination': _destinationController.text,
+                      'userID': (currentUser?.uid).toString()
+                    });
+                    Navigator.pushNamed(context, 'receipt');
+                  },
+                  child: const Text(
+                    key: Key('booking'),
+                    'Book Now',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
                     ),
-                    onPressed: () {
-                      signUp;
-                      Navigator.pushNamed(context, 'Receipt');
-                    })
+                  ),
+                )
               ],
             ),
           ),

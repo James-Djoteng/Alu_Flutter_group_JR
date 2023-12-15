@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "627611705374",
+    "project_id": "tirana-f1d9c",
+    "storage_bucket": "tirana-f1d9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627611705374:android:73b828b4f71e08e8d5ce0f",
+        "android_client_info": {
+          "package_name": "com.example.jr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq0CHf6G-k8Xs6bHgkY4qvMgdCQ7BmXxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

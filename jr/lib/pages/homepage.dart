@@ -45,31 +45,34 @@ class _MyHomePageState extends State<MyHomePage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Container(
-          height: 33,
-          width: 200,
-          color: Colors.black,
-          alignment: Alignment.center,
-          child: Column(
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, 'signUp');
-                  },
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.bus_alert,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        'BOOK A TRIP',
-                        style: TextStyle(color: Colors.white),
-                      )
-                    ],
-                  ))
-            ],
+        child: InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, 'booking');
+          },
+          child: Container(
+            decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 16, 20, 23),
+                borderRadius: BorderRadius.circular(7)),
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.of(context).size.width,
+            ),
+            width: 220,
+            height: 50,
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Icon(
+                  Icons.directions_bus_rounded,
+                  size: 48.0, // Adjust the size of the icon as needed
+                  color: Colors.blue, // Adjust the color of the icon as needed
+                ),
+                Text(
+                  key: Key('booking_screen'),
+                  'Book a trip Now',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ],
+            ),
           ),
         ),
       ),
