@@ -4,7 +4,7 @@ import 'package:jr/main.dart';
 import 'package:jr/pages/signup.dart';
 
 void main() {
-  testWidgets('Checking the text of our welcome page',
+  testWidgets('Checking the text of our Signup page',
       (WidgetTester tester) async {
     // TODO: Implement test
 
